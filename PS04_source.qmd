@@ -98,7 +98,7 @@ Does the relationship in @fig-TSG appear to be positive or negative? Does the re
 :::
 
 ::: {.callout-important icon="false" collapse="false" title="Problem 1 Answers"}
--   Delete this and put your text answer here.
+-   ***Figure 1*** appears to be positive. The relationship looks reasonably linear because the points generally follow an upward straight-line pattern.
 :::
 
 ## The Correlation Coefficient (r)

@@ -269,8 +269,8 @@ Generate a scatterplot with a best-fitting line with `non_white` as the explanat
 
 ::: {.callout-important icon="false" collapse="false" title="Problem 5 Answers"}
 ```{r}
-ggplot(data = trump, aes(x = non_white, y = trump_support)) +
-  geom_point(alpha = 0.6, color = "steelblue") +
+ggplot(data = trump, aes(x = poverty, y = trump_support)) +
+  geom_point(color = "black") +
   geom_smooth(method = "lm", se = FALSE, color = "darkred", linewidth = 1) +
   labs(
     title = "Relationship Between Non-White Population % and Trump Support",
@@ -278,8 +278,6 @@ ggplot(data = trump, aes(x = non_white, y = trump_support)) +
     y = "Trump Support Percentage (%)"
   ) +
   theme_bw()
-
-
 ```
 :::
 
@@ -367,15 +365,16 @@ If Representative Ocasio-Cortez saw the regression line (`nw_mod`) and not the a
 ::: {.callout-important icon="false" collapse="false" title="Problem 10 Answers"}
 ```{r}
 # Type your code and comments inside the code chunk
-38.5 + (2.06 * 61)
+get_regression_points(nw_mod) |> 
+  filter(non_white == 61)
 
 ```
 
-**A.** Representative Ocasio-Cortez would predict **64.16%** Trump support for this region.
+**A.** The predicted trump support in a region where **61%** of people identify non-white would be **41.9%**
 
 ```{r}
 # Type your code and comments inside the code chunk
-get_regression_points(nw_mod) %>% 
+get_regression_points(nw_mod) |> 
   filter(non_white == 61)
 ```
 

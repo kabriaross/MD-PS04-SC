@@ -135,7 +135,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified on September 09, 2026 12:43:32 Eastern Daylight Time</p>
+      <p class="date">Last modified on September 11, 2026 13:32:05 Eastern Daylight Time</p>
     </div>
   </div>
   
@@ -552,7 +552,7 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>No, it is not reasonable to conclude that social policies that increase white poverty will cause an increase in Trump support. Just because poverty and Trump support move together does not mean poverty causes that support. <strong>Correlation does not necessarily cause causation</strong></li>
 </ul>
 </div>
 </div>
@@ -623,10 +623,15 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(poverty_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">poverty =</span> <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      1 
+43.1609 </code></pre>
+</div>
 </div>
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>At 6% white poverty, we would expect <strong><em>43.16%</em></strong></li>
 </ul>
 </div>
 </div>
@@ -657,7 +662,7 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>No way, because 85% poverty is way outside your actual data range and gives you a totally impossible result of over 200% Trump support.</li>
 </ul>
 </div>
 </div>
@@ -689,8 +694,8 @@ Figure&nbsp;2: Trump support and white poverty in the US
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">get_regression_points</span>(poverty_mod)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">get_regression_points</span>(poverty_mod)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -781,7 +786,22 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> trump, <span class="fu">aes</span>(<span class="at">x =</span> non_white, <span class="at">y =</span> trump_support)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Relationship Between Non-White Population % and Trump Support"</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Non-White Population Percentage (%)"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Trump Support Percentage (%)"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PS04_source_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -812,10 +832,30 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-20" class="callout-20-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>Should expect the correlation coefficient to be negative</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>r_value <span class="ot">&lt;-</span> <span class="fu">cor</span>(trump<span class="sc">$</span>non_white, trump<span class="sc">$</span>trump_support, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Correlation coefficient (r):"</span>, <span class="fu">round</span>(r_value, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Correlation coefficient (r): -0.4251 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(trump<span class="sc">$</span>non_white, trump<span class="sc">$</span>trump_support)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  trump$non_white and trump$trump_support
+t = -3.1849, df = 46, p-value = 0.002599
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.6327724 -0.1602839
+sample estimates:
+       cor 
+-0.4250604 </code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -846,11 +886,20 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>nw_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(trump_support <span class="sc">~</span> non_white, <span class="at">data =</span> trump)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(nw_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term      estimate std_error statistic p_value lower_ci upper_ci
+  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept   58.3       2.98      19.6    0       52.3     64.3  
+2 non_white   -0.269     0.084     -3.18   0.003   -0.439   -0.099</code></pre>
+</div>
 </div>
 <ul>
-<li><p>Delete this and put your text answer here.</p></li>
-<li><p>Delete this and put your text answer here.</p></li>
+<li><p>With a 0% <code>non-white population</code>, the expected baseline Trump support is 58.3%.</p></li>
+<li><p>For every 1% increase in the <code>non-white population</code>, Trump support decreases by an average of 0.269 percentage points.</p></li>
 </ul>
 </div>
 </div>
@@ -881,10 +930,25 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>intercept <span class="ot">&lt;-</span> <span class="fl">58.3</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>slope     <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.269</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>non_white_pct <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>predicted_support <span class="ot">&lt;-</span> intercept <span class="sc">+</span> (slope <span class="sc">*</span> non_white_pct)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Predicted Trump Support:"</span>, predicted_support, <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Predicted Trump Support: 39.47 %</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>new_region <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">non_white =</span> <span class="dv">70</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(nw_mod, <span class="at">newdata =</span> new_region)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+39.48989 </code></pre>
+</div>
 </div>
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>The expected level of Trump support for a region with a 70% non-white population is <strong>39.47%</strong>.</li>
 </ul>
 </div>
 </div>
@@ -915,10 +979,26 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-26" class="callout-26-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(poverty_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.237         0.220  9.08      14.3 0.000456     1  -173.  352.  358.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(nw_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.181         0.163  9.41      10.1 0.00260     1  -175.  355.  361.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
 </div>
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>Based on the model statistics, <code>poverty_mod</code> is the better explanatory variable for Trump support.</li>
 </ul>
 </div>
 </div>
@@ -952,14 +1032,26 @@ Figure&nbsp;2: Trump support and white poverty in the US
 <div id="callout-28" class="callout-28-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fl">38.5</span> <span class="sc">+</span> (<span class="fl">2.06</span> <span class="sc">*</span> <span class="dv">61</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 164.16</code></pre>
 </div>
-<p><strong>A.</strong> Delete this and put your text answer here.</p>
+</div>
+<p><strong>A.</strong> Representative Ocasio-Cortez would predict <strong>64.16%</strong> Trump support for this region.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_points</span>(nw_mod) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(non_white <span class="sc">==</span> <span class="dv">61</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+     ID trump_support non_white trump_support_hat residual
+  &lt;int&gt;         &lt;dbl&gt;     &lt;dbl&gt;             &lt;dbl&gt;    &lt;dbl&gt;
+1     2            33        61              41.9    -8.91</code></pre>
 </div>
-<p><strong>B.</strong> Delete this and put your text answer here.</p>
-<p><strong>C.</strong> Delete this and put your text answer here.</p>
+</div>
+<p><strong>B.</strong> Her prediction is an overestimate by 8.91 percentage points. The model predicted 41.91%, but the actual support in that region was only 33%.</p>
+<p><strong>C.</strong> The <code>residual</code> for this prediction is -8.912</p>
 </div>
 </div>
 </div>
@@ -1008,7 +1100,7 @@ Tip
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.6.1 (2026-06-24)
 Platform: x86_64-redhat-linux-gnu
@@ -1048,24 +1140,24 @@ loaded via a namespace (and not attached):
 [16] utf8_1.2.6             yaml_2.3.12            data.table_1.18.4     
 [19] labeling_0.4.3         htmlwidgets_1.6.4      bit_4.6.0             
 [22] DiceDesign_1.10        RColorBrewer_1.1-3     withr_3.0.2           
-[25] nnet_7.3-20            grid_4.6.1             future_1.70.0         
-[28] globals_0.19.1         MASS_7.3-65            dichromat_2.0-0.1     
-[31] cli_3.6.6              rmarkdown_2.31         crayon_1.5.3          
-[34] generics_0.1.4         otel_0.2.0             rstudioapi_0.18.0     
-[37] future.apply_1.20.2    tzdb_0.5.0             stringr_1.6.0         
-[40] operator.tools_1.6.3.1 splines_4.6.1          parallel_4.6.1        
-[43] vctrs_0.7.3            hardhat_1.4.3          Matrix_1.7-5          
-[46] jsonlite_2.0.0         hms_1.1.4              bit64_4.8.0           
-[49] listenv_0.10.1         gower_1.0.2            glue_1.8.1            
-[52] parallelly_1.47.0      codetools_0.2-20       lubridate_1.9.5       
-[55] stringi_1.8.7          gtable_0.3.6           tibble_3.3.1          
-[58] furrr_0.4.0            pillar_1.11.1          htmltools_0.5.9       
-[61] ipred_0.9-15           lava_1.9.0             R6_2.6.1              
-[64] formula.tools_1.7.1    vroom_1.7.1            evaluate_1.0.5        
-[67] lattice_0.22-9         backports_1.5.1        snakecase_0.11.1      
-[70] class_7.3-23           Rcpp_1.1.1-1.1         nlme_3.1-169          
-[73] prodlim_2026.03.11     mgcv_1.9-4             xfun_0.57             
-[76] pkgconfig_2.0.3       </code></pre>
+[25] stats4_4.6.1           nnet_7.3-20            grid_4.6.1            
+[28] future_1.70.0          globals_0.19.1         MASS_7.3-65           
+[31] dichromat_2.0-0.1      cli_3.6.6              rmarkdown_2.31        
+[34] crayon_1.5.3           generics_0.1.4         otel_0.2.0            
+[37] rstudioapi_0.18.0      future.apply_1.20.2    tzdb_0.5.0            
+[40] stringr_1.6.0          operator.tools_1.6.3.1 splines_4.6.1         
+[43] parallel_4.6.1         vctrs_0.7.3            hardhat_1.4.3         
+[46] Matrix_1.7-5           jsonlite_2.0.0         hms_1.1.4             
+[49] bit64_4.8.0            listenv_0.10.1         gower_1.0.2           
+[52] glue_1.8.1             parallelly_1.47.0      codetools_0.2-20      
+[55] lubridate_1.9.5        stringi_1.8.7          gtable_0.3.6          
+[58] tibble_3.3.1           furrr_0.4.0            pillar_1.11.1         
+[61] htmltools_0.5.9        ipred_0.9-15           lava_1.9.0            
+[64] R6_2.6.1               formula.tools_1.7.1    vroom_1.7.1           
+[67] evaluate_1.0.5         lattice_0.22-9         backports_1.5.1       
+[70] snakecase_0.11.1       class_7.3-23           Rcpp_1.1.1-1.1        
+[73] nlme_3.1-169           prodlim_2026.03.11     mgcv_1.9-4            
+[76] xfun_0.57              pkgconfig_2.0.3       </code></pre>
 </div>
 </div>
 </section>

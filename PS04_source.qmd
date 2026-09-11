@@ -215,7 +215,7 @@ What percent of Trump support would you expect at a value of 6% white poverty?
 predict(poverty_mod, newdata = data.frame(poverty = 6))
 ```
 
--   At 6% white poverty, we would expect ***43.16%***
+-   Given the linear model, `poverty_mod`, we can expect the support for Trump to be **43.16%** when the white poverty is **6%**
 :::
 
 ::: {.callout-note icon="false" title="Problem 4"}
@@ -223,7 +223,7 @@ Do you think it is a good idea to predict Trump support at 85% white poverty, ba
 :::
 
 ::: {.callout-important icon="false" collapse="false" title="Problem 4 Answers"}
--   No way, because 85% poverty is way outside your actual data range and gives you a totally impossible result of over 200% Trump support.
+-   No, because 85% poverty is way outside your actual data range and gives you a totally impossible result of over 200% Trump support.
 :::
 
 ## Residuals
